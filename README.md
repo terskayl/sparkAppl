@@ -11,4 +11,4 @@ Creating Posts
 Liking Posts
 Commenting
 
-Created using React and Django
+Created using React and Django and TailwindCSS
