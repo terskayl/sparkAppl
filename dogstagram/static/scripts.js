@@ -71,7 +71,7 @@ function Post(props) {
             </div>
             {props.body ? (<div className='pb-2'>
                 <span className='font-normal'> {props.author} </span> <span className='font-light'> {props.body} </span>
-                <br/> ... <br/> <span className='font-light text-gray-400'>more</span>
+                <br/> <br/> <span className='font-light text-gray-400'></span>
             </div>) : (<div></div>) }
             <div className='py-2' onClick={likeToggle}>
                 <button>
@@ -80,7 +80,7 @@ function Post(props) {
                 <span className='pl-2'>{state.likes} {state.likes === 1 ? 'like' : 'likes'} </span>
             </div>
             <div className=' text-gray-400 font-light'>
-                View all 3 comments
+                {props.comments.length} comments
             </div>
             <div className='pb-2'>
                 {props.comments.map(comment => <div> <span>{comment[0]} </span> <span className='font-light pl-2'>{comment[1]}</span> </div>)}
@@ -106,12 +106,10 @@ function CreateForm(props) {
     })
 
     function addPic(event) {
-        alert(event.target[0].value);
         event.preventDefault();
         setState({
             images : state.images.concat([event.target[0].value])
         })
-        alert(state.images)
     }
 
     return (
