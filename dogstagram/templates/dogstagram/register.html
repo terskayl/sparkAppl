@@ -1,0 +1,49 @@
+{% extends 'dogstagram/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="w-full max-w-xs bg-gray-200 flex m-auto mt-40 flex flex-col p-8 rounded">
+    <div>
+        <h2 class="font-bold tracking-wider">REGISTER</h2>
+    </div>
+
+    {% if message %}
+    <div>{{message}}</div>
+    {% endif %}
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <div class="md:w-1/3">
+            USERNAME
+        </div>
+        <div class="md:w-2/3">
+            <input type="text" name="username" class="bg-gray-100 rounded border">
+        </div>
+        <div class="md:w-1/3">
+            EMAIL
+        </div>
+        <div class="md:w-2/3">
+            <input type="email" name="email" class="bg-gray-100 rounded border">
+        </div>
+        <div class="md:w-1/3">
+            PASSWORD
+        </div>
+        <div class="md:w-2/3">
+            <input type="password" name="password" class="bg-gray-100 rounded border">
+        </div>
+        <div class="md:w-1/3">
+            CONFIRM PASSWORD
+        </div>
+        <div class="md:w-2/3">
+            <input type="password" name="password2" class="bg-gray-100 rounded border">
+        </div>
+        <button class="bg-teal-500 hover:bg-teal-700 rounded text-white px-2 py-1">
+            SIGN UP
+        </button>
+    </form>
+    <div>
+        Have an account? <a href="{% url 'login' %}">Log in here!</a>
+    </div>
+</div>
+
+{% endblock %}

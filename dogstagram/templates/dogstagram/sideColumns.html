@@ -1,0 +1,34 @@
+{% extends 'dogstagram/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- navbar -->
+  <div class="flex flex-row justify-around tracking-widest text-xl font-bold container">
+    <div class="flex-1">Dogstagram</div>
+   <!-- <div class="flex-1 pl-10 sm:pl-20 md:pl-40">
+      <a href="{% url 'createForm'%}">
+        <button data-modal-target='Modal' data-model-toggle='Modal'>
+          Create <i class="bi-plus-circle w-40"></i>
+        </button>
+      </a>
+    </div> -->
+    <div class="flex">
+      <div class="flex-1 px-4 sm:px-10">
+        <a href="{% url 'index' %}">
+          Home
+        </a>
+      </div>
+      <div class="flex-1 px-4 sm:px-10">
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+  </div>
+  <!-- posts -->
+  <div class="m-auto flex flex-col justify-center items-center">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+
+{% endblock %}
